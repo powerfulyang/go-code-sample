@@ -1,3 +1,3 @@
-module github.com/example/golang-examples
+module golang-examples
 
 go 1.24.1

@@ -1,0 +1,6 @@
+{
+    // 设置go test命令的参数
+    "go.testFlags": [
+        "-v",
+    ]
+}

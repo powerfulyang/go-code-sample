@@ -3,117 +3,39 @@ description:
 globs: 
 alwaysApply: true
 ---
-请你扮演一位资深的 Golang 开发者和布道师。
+# Golang Examples Repository
 
-你的任务是创建一个详细的 Golang 学习资源库，其中包含基础语法、高级特性以及常用周边生态的示例代码。
-请按照以下要求组织和生成内容：
+这是一个全面的 Go 语言学习资源库，包含从基础语法到高级特性以及常用生态系统的实用示例。
 
-1.  **项目根目录名称**：`golang-examples-repository`
+## 🎯 项目特点
 
-2.  **一级目录结构与内容要求**：
-    *   `01-basics`：存放 Golang 基础语法示例。
-    *   `02-advanced-features`：存放 Golang 高级特性和并发编程示例。
-    *   `03-ecosystem`：存放 Golang 常用标准库和第三方库的实用示例。
-    *   `README.md`：在根目录下生成一个简要的项目说明文件。
+- **系统性学习路径**：从基础到高级的完整学习路径
+- **实用代码示例**：每个示例都可以独立运行并解决实际问题
+- **完善的测试**：包含单元测试和基准测试示例
+- **丰富的注释**：详细的中文注释，便于理解
+- **标准项目结构**：遵循 Go 语言最佳实践
 
-3.  **二级目录与具体文件示例要求** (请为每个特性/库创建一个子文件夹，并在其中放置一个或多个 `.go` 文件)：
+## 📁 目录结构
 
-    *   **`01-basics` 目录下应包含但不限于：**
-        *   `variables_constants/`
-            *   `main.go`: 演示变量声明、初始化、类型推断、常量定义。
-        *   `data_types/`
-            *   `numeric.go`: 整数、浮点数、复数。
-            *   `strings.go`: 字符串操作、多行字符串。
-            *   `booleans.go`: 布尔类型。
-        *   `control_flow/`
-            *   `if_else.go`: 条件语句。
-            *   `for_loops.go`:各种循环结构 (for, for-range)。
-            *   `switch_case.go`: switch 语句。
-        *   `functions/`
-            *   `basic_functions.go`: 函数定义、参数、返回值。
-            *   `multiple_returns.go`: 多返回值。
-            *   `variadic_functions.go`: 可变参数。
-            *   `anonymous_functions_closures.go`: 匿名函数和闭包。
-        *   `arrays_slices_maps/`
-            *   `arrays.go`: 数组定义和使用。
-            *   `slices.go`: 切片创建、追加、截取、len/cap。
-            *   `maps.go`: Map 创建、读写、删除、遍历。
-        *   `structs_methods/`
-            *   `structs.go`: 结构体定义和实例化。
-            *   `methods.go`: 为结构体定义方法 (值接收者和指针接收者)。
-        *   `pointers/`
-            *   `main.go`: 指针的声明、取地址、解引用。
-        *   `error_handling/`
-            *   `custom_errors.go`: 创建和返回自定义错误，`errors.New`, `fmt.Errorf`。
-            *   `error_wrapping.go`: (Go 1.13+) 错误包装与解包 (`%w`, `errors.Is`, `errors.As`)。
+### 01-basics - 基础语法
+- `variables-constants/` - 变量和常量
+- `data-types/` - 数据类型（数值、字符串、布尔）
+- `control-flow/` - 控制流程（条件、循环、选择）
+- `functions/` - 函数（基础、多返回值、可变参数、闭包）
+- `arrays-slices-maps/` - 集合类型（数组、切片、映射）
+- `structs-methods/` - 结构体和方法
+- `pointers/` - 指针
+- `error-handling/` - 错误处理
 
-    *   **`02-advanced-features` 目录下应包含但不限于：**
-        *   `interfaces/`
-            *   `basic_interface.go`: 接口定义、实现、类型断言、type switch。
-            *   `empty_interface.go`: 空接口 `interface{}` 的使用。
-        *   `goroutines/`
-            *   `simple_goroutine.go`: 启动 goroutine 的基本示例。
-        *   `channels/`
-            *   `buffered_unbuffered.go`: 无缓冲和有缓冲通道。
-            *   `range_close.go`: 使用 `range` 遍历通道和关闭通道。
-            *   `select_statement.go`: `select` 语句实现多路复用。
-        *   `concurrency_patterns/`
-            *   `worker_pool.go`: 工作池模式。
-            *   `mutex_sync.go`: 使用 `sync.Mutex` 进行互斥访问。
-            *   `waitgroup_sync.go`: 使用 `sync.WaitGroup` 等待 goroutine 完成。
-        *   `generics/` (Go 1.18+)
-            *   `generic_function.go`: 泛型函数示例。
-            *   `generic_type.go`: 泛型类型示例。
-        *   `reflection/` (谨慎使用)
-            *   `type_value.go`: `reflect.TypeOf` 和 `reflect.ValueOf` 的基本使用。
-        *   `testing/`
-            *   `unit_test_example/`
-                *   `calculator.go`: 一个简单的计算器。
-                *   `calculator_test.go`: 对计算器的单元测试。
-            *   `benchmark_example/`
-                *   `string_concat.go`: 字符串连接函数。
-                *   `string_concat_test.go`: 对字符串连接的基准测试。
+### 02-advanced-features - 高级特性
+- `interfaces/` - 接口
+- `goroutines/` - 协程
+- `channels/` - 通道
+- `concurrency-patterns/` - 并发模式
+- `generics/` - 泛型 (Go 1.18+)
+- `reflection/` - 反射
+- `testing/` - 测试框架
 
-    *   **`03-ecosystem` 目录下应包含但不限于：**
-        *   `standard_library/`
-            *   `net_http_server/`
-                *   `simple_server.go`: 使用 `net/http` 创建一个简单的 HTTP 服务器。
-                *   `routing_example.go`: 简单的路由处理。
-            *   `json_handling/`
-                *   `marshal_unmarshal.go`: `encoding/json` 的序列化和反序列化。
-            *   `file_io/`
-                *   `read_write_files.go`: `os` 和 `io/ioutil` (或 `io`) 包进行文件读写。
-            *   `context/`
-                *   `context_usage.go`: `context.Context` 在并发和请求处理中的使用。
-            *   `time_pkg/`
-                *   `time_operations.go`: 时间的格式化、解析、计算。
-            *   `os_exec/`
-                *   `run_command.go`: 执行外部命令。
-        *   `common_third_party/` (对于第三方库，请包含一个简单的 `go.mod` 文件，并注释说明如何获取依赖)
-            *   `gin_framework/` (Web 框架)
-                *   `go.mod`
-                *   `main.go`: 使用 Gin 创建一个简单的 API 服务 (如 GET /ping 返回 "pong")。
-            *   `gorm_orm/` (ORM)
-                *   `go.mod`
-                *   `main.go`: 使用 GORM 连接 SQLite (或其他内存数据库) 并进行基本的 CRUD 操作。
-            *   `cobra_cli/` (CLI 应用)
-                *   `go.mod`
-                *   `main.go`: 使用 Cobra 创建一个简单的 CLI 应用，包含一个子命令。
-            *   `zap_logging/` (日志库)
-                *   `go.mod`
-                *   `main.go`: 使用 Zap 进行结构化日志记录。
-
-4.  **代码要求**：
-    *   **实用性**：每个示例都应解决一个具体的问题或演示一个有用的特性。
-    *   **简洁性**：代码应尽可能简洁明了，突出核心概念。
-    *   **完整性**：每个 `.go` 文件都应是可独立运行的 (包含 `package main` 和 `func main()`，除非是库代码或者测试代码)。
-    *   **注释**：对关键代码块和概念进行清晰的注释，解释其作用和原因。
-    *   **命名规范**：遵循 Go 语言的命名规范。
-
-5.  **输出格式**：
-    请以文本形式展示完整的目录结构，并在每个 `.go` 文件前标明其完整路径。
-    对于 `.go` 文件内容，请使用 Markdown 的 Go 代码块进行包裹。
-    对于 `go.mod` 文件，也请使用 Markdown 代码块。
-
-
-请开始生成这个 Golang 学习资源库。
+### 03-ecosystem - 生态系统
+- `standard-library/` - 标准库示例
+- `common-third-party/` - 常用第三方库
