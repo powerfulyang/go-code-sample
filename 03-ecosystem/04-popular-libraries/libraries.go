@@ -34,12 +34,12 @@ func (l *LogrusLikeLogger) WithField(key string, value interface{}) *LogrusLikeL
 		level:  l.level,
 		fields: make(map[string]interface{}),
 	}
-	
+
 	// 复制现有字段
 	for k, v := range l.fields {
 		newLogger.fields[k] = v
 	}
-	
+
 	// 添加新字段
 	newLogger.fields[key] = value
 	return newLogger
@@ -51,17 +51,17 @@ func (l *LogrusLikeLogger) WithFields(fields map[string]interface{}) *LogrusLike
 		level:  l.level,
 		fields: make(map[string]interface{}),
 	}
-	
+
 	// 复制现有字段
 	for k, v := range l.fields {
 		newLogger.fields[k] = v
 	}
-	
+
 	// 添加新字段
 	for k, v := range fields {
 		newLogger.fields[k] = v
 	}
-	
+
 	return newLogger
 }
 
@@ -88,13 +88,13 @@ func (l *LogrusLikeLogger) Debug(msg string) {
 // log 内部日志记录方法
 func (l *LogrusLikeLogger) log(level, msg string) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
-	
+
 	var fieldsStr string
 	if len(l.fields) > 0 {
 		fieldsJSON, _ := json.Marshal(l.fields)
 		fieldsStr = fmt.Sprintf(" fields=%s", fieldsJSON)
 	}
-	
+
 	fmt.Printf("[%s] %s: %s%s\n", timestamp, level, msg, fieldsStr)
 }
 
@@ -172,16 +172,16 @@ func (c *ViperLikeConfig) ReadInConfig(filename string) error {
 	if err != nil {
 		return fmt.Errorf("读取配置文件失败: %v", err)
 	}
-	
+
 	var config map[string]interface{}
 	if err := json.Unmarshal(data, &config); err != nil {
 		return fmt.Errorf("解析配置文件失败: %v", err)
 	}
-	
+
 	for k, v := range config {
 		c.config[k] = v
 	}
-	
+
 	return nil
 }
 
@@ -191,7 +191,7 @@ func (c *ViperLikeConfig) WriteConfig(filename string) error {
 	if err != nil {
 		return fmt.Errorf("序列化配置失败: %v", err)
 	}
-	
+
 	return os.WriteFile(filename, data, 0644)
 }
 
@@ -266,33 +266,33 @@ func (c *CobraLikeCommand) Execute(args []string) error {
 	if len(args) == 0 {
 		return c.showHelp()
 	}
-	
+
 	// 检查是否是子命令
 	if subCmd, exists := c.SubCommands[args[0]]; exists {
 		return subCmd.Execute(args[1:])
 	}
-	
+
 	// 解析标志
 	parsedArgs, err := c.parseFlags(args)
 	if err != nil {
 		return err
 	}
-	
+
 	// 执行命令
 	if c.RunFunc != nil {
 		return c.RunFunc(c, parsedArgs)
 	}
-	
+
 	return c.showHelp()
 }
 
 // parseFlags 解析命令行标志
 func (c *CobraLikeCommand) parseFlags(args []string) ([]string, error) {
 	var parsedArgs []string
-	
+
 	for i := 0; i < len(args); i++ {
 		arg := args[i]
-		
+
 		if strings.HasPrefix(arg, "--") {
 			// 长标志
 			flagName := strings.TrimPrefix(arg, "--")
@@ -318,7 +318,7 @@ func (c *CobraLikeCommand) parseFlags(args []string) ([]string, error) {
 			parsedArgs = append(parsedArgs, arg)
 		}
 	}
-	
+
 	return parsedArgs, nil
 }
 
@@ -326,7 +326,7 @@ func (c *CobraLikeCommand) parseFlags(args []string) ([]string, error) {
 func (c *CobraLikeCommand) showHelp() error {
 	fmt.Printf("Usage: %s [flags] [args]\n\n", c.Name)
 	fmt.Printf("Description: %s\n\n", c.Description)
-	
+
 	if len(c.Flags) > 0 {
 		fmt.Println("Flags:")
 		for _, flag := range c.Flags {
@@ -334,12 +334,12 @@ func (c *CobraLikeCommand) showHelp() error {
 			if flag.Shorthand != "" {
 				shorthand = fmt.Sprintf(", -%s", flag.Shorthand)
 			}
-			fmt.Printf("  --%s%s\t%s (default: %v)\n", 
+			fmt.Printf("  --%s%s\t%s (default: %v)\n",
 				flag.Name, shorthand, flag.Description, flag.Value)
 		}
 		fmt.Println()
 	}
-	
+
 	if len(c.SubCommands) > 0 {
 		fmt.Println("Available Commands:")
 		for _, subCmd := range c.SubCommands {
@@ -347,7 +347,7 @@ func (c *CobraLikeCommand) showHelp() error {
 		}
 		fmt.Println()
 	}
-	
+
 	return nil
 }
 
@@ -477,58 +477,71 @@ func (a *TestifyLikeAssert) False(value bool, msgAndArgs ...interface{}) bool {
 
 // PopularLibrariesExamples 流行库示例
 func PopularLibrariesExamples() {
-	fmt.Println("=== 流行Go库使用示例 ===")
-	
+	fmt.Println("⭐ Go生态系统 - 流行库使用指南")
+	fmt.Println(strings.Repeat("=", 60))
+	fmt.Println("🎯 学习目标: 了解Go社区最受欢迎的库和使用模式")
+	fmt.Println()
+	fmt.Println("📚 本节涵盖的库类型:")
+	fmt.Println("   🪵 日志库: Logrus风格的结构化日志")
+	fmt.Println("   ⚙️  配置库: Viper风格的配置管理")
+	fmt.Println("   💻 CLI库: Cobra风格的命令行工具")
+	fmt.Println("   🧪 测试库: Testify风格的断言框架")
+	fmt.Println()
+	fmt.Println("💡 学习方式: 通过模拟实现理解设计思路")
+	fmt.Println("🔗 实际使用: 学会后可直接使用真实库")
+	fmt.Println()
+
 	// Logrus风格日志示例
-	fmt.Println("\n🔹 结构化日志示例 (Logrus风格):")
-	
+	fmt.Println("🔹 1. 结构化日志 (模拟Logrus)")
+	fmt.Println("💡 核心理念: 结构化数据 + 链式调用 + 多级别日志")
+
 	logger := NewLogger()
 	logger.Info("应用程序启动")
-	
+
 	logger.WithField("user_id", 12345).
 		WithField("action", "login").
 		Info("用户登录")
-	
+
 	logger.WithFields(map[string]interface{}{
 		"module": "database",
 		"query":  "SELECT * FROM users",
 		"time":   "150ms",
 	}).Info("数据库查询完成")
-	
+
 	logger.WithField("error", "connection timeout").
 		Error("数据库连接失败")
-	
+
 	// Viper风格配置示例
 	fmt.Println("\n🔹 配置管理示例 (Viper风格):")
-	
+
 	config := NewConfig()
-	
+
 	// 设置默认值
 	config.SetDefault("server.port", 8080)
 	config.SetDefault("server.host", "localhost")
 	config.SetDefault("database.driver", "mysql")
 	config.SetDefault("debug", false)
-	
+
 	// 设置配置值
 	config.Set("app.name", "Go示例应用")
 	config.Set("app.version", "1.0.0")
 	config.Set("server.port", 9000)
 	config.Set("debug", true)
-	
+
 	// 读取配置值
 	fmt.Printf("  应用名称: %s\n", config.GetString("app.name"))
 	fmt.Printf("  应用版本: %s\n", config.GetString("app.version"))
 	fmt.Printf("  服务器端口: %d\n", config.GetInt("server.port"))
 	fmt.Printf("  服务器主机: %s\n", config.GetString("server.host"))
 	fmt.Printf("  调试模式: %t\n", config.GetBool("debug"))
-	
+
 	// 保存配置到文件
 	configFile := filepath.Join(os.TempDir(), "app_config.json")
 	if err := config.WriteConfig(configFile); err != nil {
 		fmt.Printf("  保存配置失败: %v\n", err)
 	} else {
 		fmt.Printf("  配置已保存到: %s\n", configFile)
-		
+
 		// 从文件读取配置
 		newConfig := NewConfig()
 		if err := newConfig.ReadInConfig(configFile); err != nil {
@@ -536,58 +549,77 @@ func PopularLibrariesExamples() {
 		} else {
 			fmt.Printf("  从文件读取的应用名称: %s\n", newConfig.GetString("app.name"))
 		}
-		
+
 		// 清理
 		os.Remove(configFile)
 	}
-	
+
 	// Cobra风格CLI示例
 	fmt.Println("\n🔹 命令行工具示例 (Cobra风格):")
-	
+
 	rootCmd := NewCommand("myapp", "一个示例CLI应用程序")
-	
+
 	// 添加标志
 	rootCmd.StringFlag("config", "c", "config.json", "配置文件路径")
 	rootCmd.BoolFlag("verbose", "v", false, "详细输出")
 	rootCmd.IntFlag("port", "p", 8080, "服务器端口")
-	
+
 	// 添加子命令
 	serveCmd := NewCommand("serve", "启动HTTP服务器")
 	serveCmd.RunFunc = func(cmd *CobraLikeCommand, args []string) error {
 		port := cmd.GetIntFlag("port")
 		verbose := cmd.GetBoolFlag("verbose")
-		
+
 		fmt.Printf("  启动服务器在端口 %d\n", port)
 		if verbose {
 			fmt.Println("  详细模式已启用")
 		}
 		return nil
 	}
-	
+
 	versionCmd := NewCommand("version", "显示版本信息")
 	versionCmd.RunFunc = func(cmd *CobraLikeCommand, args []string) error {
 		fmt.Println("  myapp version 1.0.0")
 		return nil
 	}
-	
+
 	rootCmd.AddCommand(serveCmd)
 	rootCmd.AddCommand(versionCmd)
-	
+
 	// 模拟命令行参数
 	fmt.Println("  执行: myapp serve --port 9000 --verbose")
 	if err := rootCmd.Execute([]string{"serve", "--port", "9000", "--verbose"}); err != nil {
 		log.Printf("命令执行失败: %v", err)
 	}
-	
+
 	fmt.Println("\n  执行: myapp version")
 	if err := rootCmd.Execute([]string{"version"}); err != nil {
 		log.Printf("命令执行失败: %v", err)
 	}
-	
-	fmt.Println("\n✅ 流行库示例演示完成!")
-	fmt.Println("💡 提示: 在实际项目中使用以下命令安装这些库:")
-	fmt.Println("💡   go get github.com/sirupsen/logrus")
-	fmt.Println("💡   go get github.com/spf13/viper")
-	fmt.Println("💡   go get github.com/spf13/cobra")
-	fmt.Println("💡   go get github.com/stretchr/testify")
+
+	fmt.Println("\n🎉 Go生态系统学习完成！")
+	fmt.Println(strings.Repeat("-", 50))
+	fmt.Println("🎓 您已经了解了:")
+	fmt.Println("   ✅ 结构化日志的设计模式")
+	fmt.Println("   ✅ 配置管理的最佳实践")
+	fmt.Println("   ✅ CLI工具的开发框架")
+	fmt.Println("   ✅ 测试断言的使用方法")
+	fmt.Println()
+	fmt.Println("📦 真实库安装命令:")
+	fmt.Println("   🪵 日志: go get github.com/sirupsen/logrus")
+	fmt.Println("   ⚙️  配置: go get github.com/spf13/viper")
+	fmt.Println("   💻 CLI: go get github.com/spf13/cobra")
+	fmt.Println("   🧪 测试: go get github.com/stretchr/testify")
+	fmt.Println()
+	fmt.Println("🌟 更多优秀库推荐:")
+	fmt.Println("   • Gin/Echo - Web框架")
+	fmt.Println("   • GORM - ORM框架")
+	fmt.Println("   • Redis - 缓存客户端")
+	fmt.Println("   • Prometheus - 监控指标")
+	fmt.Println()
+	fmt.Println("💡 选择库的原则:")
+	fmt.Println("   \"选择活跃维护、文档完善、社区认可的库\"")
+	fmt.Println("   \"理解设计思想比记住API更重要\"")
+	fmt.Println()
+	fmt.Println("🚀 下一步: 在实际项目中应用这些库！")
 }
