@@ -5,8 +5,24 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	// 基础模块
+
 	// 高级特性模块
+
 	// 生态系统模块
+	packages "golang-examples/01-basics/10-packages-modules"
+	performance "golang-examples/02-advanced-features/06-performance"
+	thirdparty "golang-examples/03-ecosystem/02-third-party-libraries"
+	tools "golang-examples/03-ecosystem/03-go-tools"
+	libraries "golang-examples/03-ecosystem/04-popular-libraries"
+
+	// 实际应用模块
+	webapi "golang-examples/04-practical-applications/01-web-api"
+	database "golang-examples/04-practical-applications/02-database"
+	cli "golang-examples/04-practical-applications/03-cli-tool"
+	network "golang-examples/04-practical-applications/04-network"
+	security "golang-examples/04-practical-applications/07-security"
 )
 
 // Person 结构体
@@ -46,6 +62,26 @@ func main() {
 		runTestingDemo()
 	case "stdlib":
 		runStandardLibraryDemo()
+	case "functional":
+		runFunctionalDemo()
+	case "webapi":
+		runWebAPIDemo()
+	case "database":
+		runDatabaseDemo()
+	case "cli":
+		runCLIDemo()
+	case "network":
+		runNetworkDemo()
+	case "security":
+		runSecurityDemo()
+	case "packages":
+		runPackagesDemo()
+	case "performance":
+		runPerformanceDemo()
+	case "tools":
+		runToolsDemo()
+	case "popular":
+		runPopularLibrariesDemo()
 	case "all":
 		runAllDemos()
 	default:
@@ -166,6 +202,16 @@ func showUsage() {
 	fmt.Println("  reflection  - 反射示例")
 	fmt.Println("  testing     - 测试框架示例")
 	fmt.Println("  stdlib      - 标准库示例")
+	fmt.Println("  functional  - 函数式编程示例")
+	fmt.Println("  webapi      - Web API示例")
+	fmt.Println("  database    - 数据库操作示例")
+	fmt.Println("  cli         - CLI工具示例")
+	fmt.Println("  network     - 网络编程示例")
+	fmt.Println("  security    - 安全和认证示例")
+	fmt.Println("  packages    - 包和模块系统示例")
+	fmt.Println("  performance - 性能优化示例")
+	fmt.Println("  tools       - Go工具链示例")
+	fmt.Println("  popular     - 流行库使用示例")
 	fmt.Println("  all         - 运行所有示例")
 	fmt.Println()
 	fmt.Println("示例:")
@@ -211,6 +257,73 @@ func runStandardLibraryDemo() {
 	fmt.Println("或查看标准库相关代码和测试")
 }
 
+// 新增的演示函数
+func runFunctionalDemo() {
+	fmt.Println("🔹 函数式编程示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	thirdparty.FunctionalExamples()
+}
+
+func runWebAPIDemo() {
+	fmt.Println("🔹 Web API示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	webapi.WebAPIExamples()
+}
+
+func runDatabaseDemo() {
+	fmt.Println("🔹 数据库操作示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	database.DatabaseExamples()
+}
+
+func runCLIDemo() {
+	fmt.Println("🔹 CLI工具示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	cli.CLIExamples()
+}
+
+func runNetworkDemo() {
+	fmt.Println("🔹 网络编程示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	network.TCPExamples()
+	fmt.Println()
+	network.UDPExamples()
+	fmt.Println()
+	network.WebSocketExamples()
+}
+
+func runSecurityDemo() {
+	fmt.Println("🔹 安全和认证示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	security.JWTExamples()
+	fmt.Println()
+	security.EncryptionExamples()
+}
+
+func runPackagesDemo() {
+	fmt.Println("🔹 包和模块系统示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	packages.PackageExamples()
+}
+
+func runPerformanceDemo() {
+	fmt.Println("🔹 性能优化示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	performance.PerformanceExamples()
+}
+
+func runToolsDemo() {
+	fmt.Println("🔹 Go工具链示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	tools.GoToolsExamples()
+}
+
+func runPopularLibrariesDemo() {
+	fmt.Println("🔹 流行库使用示例演示")
+	fmt.Println(strings.Repeat("=", 50))
+	libraries.PopularLibrariesExamples()
+}
+
 func runAllDemos() {
 	fmt.Println("🚀 运行所有示例演示")
 	fmt.Println(strings.Repeat("=", 50))
@@ -228,6 +341,26 @@ func runAllDemos() {
 	runTestingDemo()
 	fmt.Println()
 	runStandardLibraryDemo()
+	fmt.Println()
+	runFunctionalDemo()
+	fmt.Println()
+	runWebAPIDemo()
+	fmt.Println()
+	runDatabaseDemo()
+	fmt.Println()
+	runCLIDemo()
+	fmt.Println()
+	runNetworkDemo()
+	fmt.Println()
+	runSecurityDemo()
+	fmt.Println()
+	runPackagesDemo()
+	fmt.Println()
+	runPerformanceDemo()
+	fmt.Println()
+	runToolsDemo()
+	fmt.Println()
+	runPopularLibrariesDemo()
 
 	fmt.Println("\n✅ 所有示例演示完成!")
 	fmt.Println("💡 提示: 运行 'go test ./...' 来执行所有测试")

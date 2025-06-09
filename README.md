@@ -22,6 +22,7 @@
 - `07-structs-methods/` - 结构体和方法
 - `08-pointers/` - 指针
 - `09-error-handling/` - 错误处理
+- `10-packages-modules/` - 包和模块系统
 
 ### 02-advanced-features - 高级特性
 - `01-interfaces/` - 接口
@@ -29,12 +30,23 @@
 - `03-generics/` - 泛型 (Go 1.18+)
 - `04-reflection/` - 反射
 - `05-testing/` - 测试框架
+- `06-performance/` - 性能优化
 
 ### 03-ecosystem - 生态系统
 - `01-standard-library/` - 标准库示例
+- `02-third-party-libraries/` - 第三方库和函数式编程
+- `03-go-tools/` - Go工具链
+- `04-popular-libraries/` - 流行库使用模式
 
 ### 03-practical-examples - 实际应用示例
 - `01-package-management/` - 包管理
+
+### 04-practical-applications - 实际应用开发
+- `01-web-api/` - Web API开发
+- `02-database/` - 数据库操作
+- `03-cli-tool/` - CLI工具开发
+- `04-network/` - 网络编程 (TCP/UDP/WebSocket)
+- `07-security/` - 安全和认证 (JWT/加密)
 
 ## 🚀 快速开始
 
@@ -48,6 +60,16 @@ go run main.go generics      # 泛型示例
 go run main.go reflection    # 反射示例
 go run main.go testing       # 测试框架示例
 go run main.go stdlib        # 标准库示例
+go run main.go functional    # 函数式编程示例
+go run main.go webapi        # Web API示例
+go run main.go database      # 数据库操作示例
+go run main.go cli           # CLI工具示例
+go run main.go network       # 网络编程示例
+go run main.go security      # 安全和认证示例
+go run main.go packages      # 包和模块系统示例
+go run main.go performance   # 性能优化示例
+go run main.go tools         # Go工具链示例
+go run main.go popular       # 流行库使用示例
 go run main.go all           # 运行所有示例
 
 # 运行所有测试
@@ -92,8 +114,19 @@ go test -cover ./...
 2. 02-advanced-features/03-generics - 泛型编程 (Go 1.18+)
 3. 02-advanced-features/04-reflection - 反射编程
 4. 02-advanced-features/05-testing - 测试框架和技巧
-5. 03-ecosystem/01-standard-library - 标准库深入
-6. 03-practical-examples/01-package-management - 实际项目应用
+5. 02-advanced-features/06-performance - 性能优化技巧
+6. 01-basics/10-packages-modules - 包和模块系统
+7. 03-ecosystem/01-standard-library - 标准库深入
+8. 03-ecosystem/02-third-party-libraries - 函数式编程和工具库
+9. 03-ecosystem/03-go-tools - Go工具链使用
+10. 03-ecosystem/04-popular-libraries - 流行库使用模式
+
+### 实战路径
+1. 04-practical-applications/01-web-api - Web API开发
+2. 04-practical-applications/02-database - 数据库操作和设计
+3. 04-practical-applications/03-cli-tool - CLI工具开发
+4. 04-practical-applications/04-network - 网络编程和通信
+5. 04-practical-applications/07-security - 安全认证和加密
 
 ## 🚀 快速开始
 
